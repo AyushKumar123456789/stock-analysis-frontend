@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../context/AuthContext';
 
@@ -59,6 +59,7 @@ const LoginPage = () => {
                         Register
                     </Link>
                 </p>
+
                 <p className="mt-2 text-center text-gray-600">
                     <Link
                         to="/forgot-password"

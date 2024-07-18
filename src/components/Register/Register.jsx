@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import useAuth from '../../context/AuthContext';
 
 const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
 
+    const { BackendURL } = useAuth();
+
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
             let return_msg = await axios.post(
-                'http://localhost:3000/api/users/register',
+                `${BackendURL}/api/users/register`,
                 {
                     username,
                     email,

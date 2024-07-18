@@ -15,35 +15,27 @@ import Cookies from 'js-cookie';
 import ResetPassword from './components/ResetPassword/ResetPassword';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 
+
 const App = () => {
     axios.defaults.withCredentials = true;
 
-    const check_cookie_is_alive = async () => {
-        const expiryDate = new Date(Cookies.get('token'));
-        if (expiryDate < new Date()) {
-            // Token is expired
-            return true;
-        }
-        return false;
-    };
+
+    const BackendURL = 'https://stock-analysis-backend-ldka.onrender.com';
 
     const login = async (email, password) => {
-        const { data } = await axios.post(
-            'http://localhost:3000/api/users/login',
-            {
-                email,
-                password,
-            }
-        );
+        const { data } = await axios.post(`${BackendURL}/api/users/login`, {
+            email,
+            password,
+        });
         console.log(data, 'app.jsx code');
     };
 
     const logout = () => {
-        axios.post('http://localhost:3000/api/users/logout');
+        axios.post(`${BackendURL}/api/users/logout`);
     };
 
     return (
-        <AuthContext.Provider value={{ login, logout }}>
+        <AuthContext.Provider value={{ login, logout, BackendURL }}>
             <Router>
                 <Header />
                 <Routes>
