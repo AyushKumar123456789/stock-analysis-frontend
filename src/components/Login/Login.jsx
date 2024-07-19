@@ -5,7 +5,7 @@ import useAuth from '../../context/AuthContext';
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { login } = useAuth();
+    const { login, role, setRole } = useAuth();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -24,7 +24,7 @@ const LoginPage = () => {
                 </h2>
                 <form onSubmit={handleLogin} className="mt-6">
                     <div>
-                        <label className="block text-gray-700">email</label>
+                        <label className="block text-gray-700">Email</label>
                         <input
                             type="text"
                             value={email}
@@ -57,6 +57,15 @@ const LoginPage = () => {
                         className="text-green-500 hover:text-green-700"
                     >
                         Register
+                    </Link>
+                </p>
+
+                <p className="mt-2 text-center text-gray-600">
+                    <Link
+                        to="/forgot-password"
+                        className="text-green-500 hover:text-green-700"
+                    >
+                        Forgot Password?
                     </Link>
                 </p>
             </div>
