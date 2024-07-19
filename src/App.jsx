@@ -15,12 +15,11 @@ import Cookies from 'js-cookie';
 import ResetPassword from './components/ResetPassword/ResetPassword';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 
-
 const App = () => {
     axios.defaults.withCredentials = true;
 
-
-    const BackendURL = 'https://stock-analysis-backend-ldka.onrender.com';
+    // const BackendURL = 'https://stock-analysis-backend-ldka.onrender.com';
+    const BackendURL = 'http://localhost:3000';
 
     const login = async (email, password) => {
         const { data } = await axios.post(`${BackendURL}/api/users/login`, {

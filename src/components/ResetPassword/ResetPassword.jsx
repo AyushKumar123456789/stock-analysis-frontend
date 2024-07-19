@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import useAuth from '../../context/AuthContext';
 
 const ResetPassword = () => {
     const [password, setPassword] = useState('');
@@ -9,6 +10,7 @@ const ResetPassword = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const { BackendURL } = useAuth();
 
     useEffect(() => {
         if (password === confirmPassword && password.length > 5) {
@@ -39,7 +41,7 @@ const ResetPassword = () => {
         try {
             setLoading(true);
             let response = await axios.post(
-                `http://127.0.0.1:3000/api/users/reset-password?token=${token}`,
+                `${BackendURL}/api/users/reset-password?token=${token}`,
                 { password },
                 {
                     headers: {

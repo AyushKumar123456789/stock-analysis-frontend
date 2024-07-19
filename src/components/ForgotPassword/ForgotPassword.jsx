@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import useAuth from '../../context/AuthContext';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const { BackendURL } = useAuth();
 
     const navigate = useNavigate();
 
@@ -21,14 +23,17 @@ const ForgotPassword = () => {
         try {
             setLoading(true);
             let response = await axios.post(
-                'http://127.0.0.1:3000/api/users/forgot-password',
-                { email },
+                `${BackendURL}/api/users/forgot-password`,
+                {
+                    email,
+                },
                 {
                     headers: {
                         'Content-Type': 'application/json',
                     },
                 }
             );
+            console.log(response, 'await axios.post  forgot password : ');
             setLoading(false);
             setSuccess('Password reset email sent. Please check your inbox.');
             setTimeout(() => {
