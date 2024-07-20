@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PasswordInput from '../PasswordInput/PasswordInput';
 import useAuth from '../../context/AuthContext';
 
 const LoginPage = () => {
@@ -35,12 +36,10 @@ const LoginPage = () => {
                     </div>
                     <div className="mt-4">
                         <label className="block text-gray-700">Password</label>
-                        <input
-                            type="password"
+                        <PasswordInput
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
-                            required
                         />
                     </div>
                     <button

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import PasswordInput from '../PasswordInput/PasswordInput'; 
 import useAuth from '../../context/AuthContext';
-
 
 const RegisterPage = () => {
     const [email, setEmail] = useState('');
@@ -11,8 +10,6 @@ const RegisterPage = () => {
     const [username, setUsername] = useState('');
 
     const { BackendURL } = useAuth();
-
-
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
@@ -65,12 +62,10 @@ const RegisterPage = () => {
                     </div>
                     <div className="mt-4">
                         <label className="block text-gray-700">Password</label>
-                        <input
-                            type="password"
+                        <PasswordInput
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
-                            required
                         />
                     </div>
                     <button
