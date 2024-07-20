@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import PasswordInput from '../PasswordInput/PasswordInput';
 import useAuth from '../../context/AuthContext';
-
 
 const RegisterPage = () => {
     const [email, setEmail] = useState('');
@@ -11,25 +10,18 @@ const RegisterPage = () => {
     const [username, setUsername] = useState('');
 
     const { BackendURL } = useAuth();
-
-
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
             let return_msg = await axios.post(
-
                 `${BackendURL}/api/users/register`,
-
-                'http://localhost:3000/api/users/register',
                 {
                     username,
                     email,
                     password,
                 }
             );
-
             console.log(return_msg);
-
             // Redirect or handle registration success
         } catch (error) {
             console.error('Registration error', error);
@@ -65,16 +57,15 @@ const RegisterPage = () => {
                     </div>
                     <div className="mt-4">
                         <label className="block text-gray-700">Password</label>
-                        <input
-                            type="password"
+                        <PasswordInput
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
-                            required
                         />
                     </div>
                     <button
                         type="submit"
+                        onChange={handleRegister}
                         className="w-full mt-6 bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition duration-200"
                     >
                         Register
