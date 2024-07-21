@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import useAuth from '../../context/AuthContext';
+import GlobalContext from '../../context/GlobalState';
 
 const ResetPassword = () => {
     const [password, setPassword] = useState('');
@@ -10,7 +10,7 @@ const ResetPassword = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
-    const { BackendURL } = useAuth();
+    const { BackendURL } = useContext(GlobalContext);
 
     useEffect(() => {
         if (password === confirmPassword && password.length > 5) {

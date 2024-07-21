@@ -1,0 +1,9 @@
+/* LoginModal.css */
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}

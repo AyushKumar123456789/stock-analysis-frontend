@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PasswordInput from '../PasswordInput/PasswordInput';
-import useAuth from '../../context/AuthContext';
+import GlobalContext from '../../context/GlobalState';
 
 const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
 
-    const { BackendURL } = useAuth();
+    const { BackendURL } = useContext(GlobalContext);
     const handleRegister = async (e) => {
         e.preventDefault();
         try {

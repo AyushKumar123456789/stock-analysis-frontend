@@ -1,47 +1,48 @@
-import React, { useState, useEffect } from "react";
-import useAuth from "../../context/AuthContext";
-import axios from "axios";
-import StockForm from "./StockForm";
-import Cookies from "js-cookie";
+import React, { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
+import StockForm from './StockForm';
+import Cookies from 'js-cookie';
+import GlobalContext from '../../context/GlobalState';
 
 const StocksPage = () => {
-  const [stocks, setStocks] = useState([]);
+    const [stocks, setStocks] = useState([]);
+    const { fetchStocks, user } = useContext(GlobalContext);
 
-  useEffect(() => {
-    const fetchStocks = async () => {
-      try {
-        const { data } = await axios.get("http://localhost:3000/api/stocks");
-        setStocks(data);
-      } catch (error) {
-        console.error("Error fetching stocks:", error);
-      }
+    useEffect(() => {
+        const fetchStocksHandler = async () => {
+            try {
+                const res = await fetchStocks();
+                setStocks(res);
+            } catch (error) {
+                console.error('Error fetching stocks:', error);
+            }
+        };
+
+        fetchStocksHandler();
+    }, [user]);
+
+    const handleAddStock = (newStock) => {
+        setStocks([...stocks, newStock]);
     };
 
-    fetchStocks();
-  }, []);
+    return (
+        <div className="container mx-auto p-4">
+            <h1 className="text-3xl font-bold text-center text-green-700 mb-8">
+                Stocks to Invest In and Analysis : {user?.role}
+            </h1>
 
-  const handleAddStock = (newStock) => {
-    setStocks([...stocks, newStock]);
-  };
+            {user?.role === 'editor' && <StockForm onAdd={handleAddStock} />}
 
-  return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold text-center text-green-700 mb-8">
-        Stocks to Invest In and Analysis : {Cookies.get("role")}
-      </h1>
-
-      {Cookies.get("role") === "editor" && <StockForm onAdd={handleAddStock} />}
-
-      {stocks.map((stock) => (
-        <div key={stock._id} className="mb-8">
-          <h2 className="text-2xl font-semibold text-orange-500 mb-4">
-            {stock.title}
-          </h2>
-          <p className="text-gray-700">{stock.content}</p>
+            {stocks.map((stock) => (
+                <div key={stock._id} className="mb-8">
+                    <h2 className="text-2xl font-semibold text-orange-500 mb-4">
+                        {stock.title}
+                    </h2>
+                    <p className="text-gray-700">{stock.content}</p>
+                </div>
+            ))}
         </div>
-      ))}
-    </div>
-  );
+    );
 };
 
 export default StocksPage;

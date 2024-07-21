@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import useAuth from '../../context/AuthContext';
+import GlobalContext from '../../context/GlobalState';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
-    const { BackendURL } = useAuth();
+    const { BackendURL } = useContext(GlobalContext);
 
     const navigate = useNavigate();
 
