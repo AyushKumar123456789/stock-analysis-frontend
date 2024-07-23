@@ -147,7 +147,7 @@ export const GlobalProvider = ({ children }) => {
             Cookies.set('token', token);
 
             // Check if the token is correctly set in the cookie
-            const savedToken = Cookies.get('token');
+            const savedToken = Cookies.get('token'); // I think this should be before setting the token
             console.log(savedToken, 'Saved Token');
 
             if (savedToken === token) {
