@@ -5,7 +5,12 @@ export default {
         '/api': 'http://localhost:3000',
     },
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                blue1: '#2F3061',
+                orange1: '#FF785A'
+            },
+        },
     },
     plugins: [],
 };
