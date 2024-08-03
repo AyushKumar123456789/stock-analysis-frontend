@@ -4,24 +4,24 @@ const HomePage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-[#74E291] text-white py-20 text-center">
-        <h1 className="text-4xl font-bold mb-4">Learn How to Invest</h1>
-        <p className="text-xl mb-8">
+      <section className="bg-white py-20 text-center">
+        <h1 className="text-5xl font-bold mb-2 text-blue1">Learn How to Invest</h1>
+        <p className="text-lg text-black/60 mb-8">
           Quality Information, Stocks You Can Trust
         </p>
-        <button className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-orange-600 transition-colors duration-200">
+        <button className="bg-orange1 font-semibold text-white px-6 py-3 rounded-md hover:bg-orange-600 transition-colors duration-200">
           Get Started
         </button>
       </section>
 
       {/* Our Products Section */}
       <section className="py-20 bg-gray-100 text-center">
-        <h2 className="text-3xl font-bold mb-12 text-green-700">
+        <h2 className="text-3xl font-bold mb-12 text-orange1">
           Our Products
         </h2>
         <div className="flex justify-center space-x-8">
           <div className="bg-white shadow-md p-6 rounded-lg w-1/4">
-            <h3 className="text-xl font-semibold mb-4 text-orange-500">
+            <h3 className="text-xl font-semibold mb-4 text-blue1">
               Product 1
             </h3>
             <p className="text-gray-600">
@@ -29,7 +29,7 @@ const HomePage = () => {
             </p>
           </div>
           <div className="bg-white shadow-md p-6 rounded-lg w-1/4">
-            <h3 className="text-xl font-semibold mb-4 text-orange-500">
+            <h3 className="text-xl font-semibold mb-4 text-blue1">
               Product 2
             </h3>
             <p className="text-gray-600">
@@ -37,7 +37,7 @@ const HomePage = () => {
             </p>
           </div>
           <div className="bg-white shadow-md p-6 rounded-lg w-1/4">
-            <h3 className="text-xl font-semibold mb-4 text-orange-500">
+            <h3 className="text-xl font-semibold mb-4 text-blue1">
               Product 3
             </h3>
             <p className="text-gray-600">
@@ -49,7 +49,7 @@ const HomePage = () => {
 
       {/* Testimonials Section */}
       <section className="py-20 bg-white text-center">
-        <h2 className="text-3xl font-bold mb-12 text-green-700">
+        <h2 className="text-3xl font-bold mb-12 text-orange1">
           What Our Clients Say
         </h2>
         <div className="flex justify-center space-x-8">
@@ -79,7 +79,7 @@ const HomePage = () => {
 
       {/*Our Team Section */}
       <section className="py-20 bg-gray-100 text-center">
-        <h2 className="text-3xl font-bold mb-12 text-green-700">Our Team</h2>
+        <h2 className="text-3xl font-bold mb-12 text-orange1">Our Team</h2>
         <div className="flex justify-center space-x-8">
           <div className="bg-white p-6 rounded-lg w-1/4 shadow-md">
             <img
@@ -103,12 +103,12 @@ const HomePage = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="bg-yellow-500 text-white py-20 text-center">
+      <section className="bg-blue1 text-white py-20 text-center">
         <h2 className="text-3xl font-bold mb-4">Join Us Today</h2>
         <p className="text-xl mb-8">
           Start your investment journey with resources you can trust.
         </p>
-        <button className="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600 transition-colors duration-200">
+        <button className="bg-orange1 text-white px-6 py-3 rounded-md hover:bg-green-600 transition-colors duration-200">
           Sign Up Now
         </button>
       </section>
