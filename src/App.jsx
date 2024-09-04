@@ -12,7 +12,6 @@ import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import ProtectedUserRoute from './components/RoutesConfigration/ProtectedUserRoute';
 import NotAuthenticatedRoute from './components/RoutesConfigration/NotAuthenticatedRoute';
 import BackendRedirect from './components/BackendRedirect';
-import StockDetail from './components/Stocks/StockDetail';
 
 const App = () => {
     return (
@@ -37,7 +36,6 @@ const App = () => {
                     }
                 />
                 <Route path="/stocks" element={<Stocks />} />
-                <Route path="/stocks/detail" element={<StockDetail />} />
                 <Route path="/knowledge" element={<Knowledge />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/reset-password" element={<ResetPassword />} />
